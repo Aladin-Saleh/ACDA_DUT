@@ -1,0 +1,24 @@
+Choix du sujet : 
+
+1.3  Déclaration de valeur et inventaire des cartons.
+(Client)
+
+Catégories :
++ Déclaration des valeurs
+	-associer facture/docu
+		-prendre en photo
+	-objet de valeur
++ Services Premium	
+	-plan de logement
+		-naviguer
+	-disposition meuble
++ Cartons
+	-inventaire
+		-flash code (possibilité de donnée une description)
+		-renseigner piece
+		-objet de valeur
+		-définir pièce
++Terminer
+	-récapitulatif
+
+

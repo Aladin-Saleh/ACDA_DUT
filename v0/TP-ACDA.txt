@@ -1,0 +1,4 @@
+Exo 2 :
+
+IllegalArgumentException : l'argument donné à la méthode n'est pas bonne 
+IllegalStateException : la méthode a été utilisé au mauvais moment, ou été executer alors qu'elle ne 						le devait pas 
