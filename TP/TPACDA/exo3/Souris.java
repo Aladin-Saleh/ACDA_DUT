@@ -13,7 +13,8 @@ private Screen fen;
 private JLabel img;
 private String photo[] = new String[6];
 private int i = 0;
-private int indice = 0;
+private int indice = 1;
+private int val;
 
 public Souris(Screen fen,JLabel img)
 {	
@@ -40,8 +41,15 @@ for (i = 0; i < photo.length;i++ ) {
 
              fen.remove(img);
              img.setOpaque(true);
+             val =  indice%this.photo.length;
+              if (val == 0) {
+             	val =1;
+             }
+             JLabel image = new JLabel(new ImageIcon(photo[++indice%this.photo.length]));//Permet de revenir à 0 quand on atteint la limite
+            
+             System.out.println("indice + modulo : " + indice%this.photo.length);
+			 image.setOpaque(true);
 
-             JLabel image = new JLabel(new ImageIcon(photo[++indice%this.photo.length]));
              fen.add(image);
 			       fen.revalidate();
 

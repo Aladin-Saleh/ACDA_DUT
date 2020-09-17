@@ -19,8 +19,8 @@ public class Screen extends JFrame
 		
 
 
-		JLabel image = new JLabel(new ImageIcon("index.jpg"));
-		
+		JLabel image = new JLabel(new ImageIcon("3.jpg"));
+		image.setOpaque(true);
 
 
 	
