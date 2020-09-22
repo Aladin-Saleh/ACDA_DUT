@@ -24,7 +24,7 @@ public class Requete
 
 		while(rs.next())
 		countMdl =  rs.getInt(1);
-		System.out.println(countMdl);
+		//System.out.println(countMdl);
 		}
 
 		catch(ClassNotFoundException e)
@@ -47,46 +47,175 @@ public class Requete
 
 
 
-	public String Module(/*int nbrModule*/)
+	public void Module(String[] module)
 	{
-		String mdl = "";
-		int i = 1;
+
+		int i = 0;
+
 		try
 		{
-
-		Connection cnx = DriverManager.getConnection("jdbc:mariadb://dwarves.iut-fbleau.fr/saleh","saleh", "aladin.saleh");
+			Connection cnx = DriverManager.getConnection("jdbc:mariadb://dwarves.iut-fbleau.fr/saleh","saleh", "aladin.saleh");
 		Class.forName("org.mariadb.jdbc.Driver");
 
 		
-		PreparedStatement pst = cnx.prepareStatement("SELECT Module.codes FROM Champ,Module WHERE Champ.id = Module.id");
+		PreparedStatement pst = cnx.prepareStatement("SELECT codes FROM Module");
 		ResultSet rs = pst.executeQuery();
 
+		while(rs.next()){
 
+		module[i] =  rs.getString(1);
+		//System.out.println(module[i]);
 
-
-		while(rs.next()) 
-		{
-
-		System.out.println("Module : " + rs.getString(2));
-		mdl = rs.getString(1);
+		i++;
 
 		}
+
+	}
+
+		catch(ClassNotFoundException e)
+	{
+
 	}
 
 	catch(SQLException e)
+
 	{
-		e.printStackTrace();
+			e.printStackTrace();
 	}
 
-	catch(ClassNotFoundException e)
+
+	
+	}
+
+
+
+	public int getIDModule(String module)
 	{
-		e.printStackTrace();
+
+		int id = 0;
+		try
+		{
+
+			Connection cnx = DriverManager.getConnection("jdbc:mariadb://dwarves.iut-fbleau.fr/saleh","saleh", "aladin.saleh");
+		Class.forName("org.mariadb.jdbc.Driver");
+
+			PreparedStatement pst = cnx.prepareStatement("SELECT id FROM Module WHERE codes = (?)");
+			pst.setString(1,module);
+			ResultSet rs = pst.executeQuery();
+
+			while(rs.next())
+			{
+				//System.out.println(module + " : " + rs.getInt(1));
+				id = rs.getInt(1);
+
+			}
+		}
+
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+
+		catch(ClassNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+
+
+		return id;
+
+
+
+
 	}
 
 
-	return mdl;
+	public int nbrChamp(int id)//Récupere le nombre de champ dans la db
+	{
+		int countChmp = 0;
+		try
+		{
+			Connection cnx = DriverManager.getConnection("jdbc:mariadb://dwarves.iut-fbleau.fr/saleh","saleh", "aladin.saleh");
+		Class.forName("org.mariadb.jdbc.Driver");
+
+		
+		PreparedStatement pst = cnx.prepareStatement("SELECT COUNT(codes) FROM Champ WHERE id = (?)");
+		pst.setInt(1,id);
+		ResultSet rs = pst.executeQuery();
+
+		while(rs.next())
+		countChmp =  rs.getInt(1);
+		//System.out.println("Champ nbr : " + countChmp);
+		}
+
+		catch(ClassNotFoundException e)
+	{
 
 	}
+
+	catch(SQLException e)
+
+	{
+			e.printStackTrace();
+	}
+
+	return countChmp;
+
+		
+		
+	}
+
+
+
+
+
+	public void getChamp(String[] module,int id)
+	{
+
+		int i = 0;
+
+		try
+		{
+			Connection cnx = DriverManager.getConnection("jdbc:mariadb://dwarves.iut-fbleau.fr/saleh","saleh", "aladin.saleh");
+		Class.forName("org.mariadb.jdbc.Driver");
+
+		
+		PreparedStatement pst = cnx.prepareStatement("SELECT codes FROM Champ WHERE id = (?)");
+		pst.setInt(1,id);
+		ResultSet rs = pst.executeQuery();
+
+		while(rs.next()){
+
+		module[i] =  rs.getString(1);
+		//System.out.println(module[i]);
+
+		i++;
+
+		}
+
+	}
+
+		catch(ClassNotFoundException e)
+	{
+
+	}
+
+	catch(SQLException e)
+
+	{
+			e.printStackTrace();
+	}
+
+
+	
+	}
+
+
+
+
+
+
+
 
 
 
