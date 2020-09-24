@@ -4,50 +4,41 @@ import javax.swing.*;
 
 	
 
-
 public class Screen extends JFrame
 {
 
 
 	public Screen()
 	{
-		int a,b,rep;
-		String[] question = new String[10];
-		String[] reponse = new String[10];
+	
 
 
 
 		this.setSize(200,200);
 		this.setLocation(100,100);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		JPanel panQuestion = new JPanel();
-		JPanel panReponse = new JPanel();
+
+		CreateQuestion gen = new CreateQuestion();
+		JLabel affichageQuestion = new JLabel("OK");
+		affichageQuestion.setFont(new Font("Serif", Font.BOLD, 48));
 		
+		panQuestion.add(affichageQuestion,BorderLayout.CENTER);
 
-		createQuestion qsnt = new createQuestion();
+		QuestionSuivante nxt = new QuestionSuivante(this,affichageQuestion,panQuestion,gen);
 
-		System.out.println(qsnt.generationDeQuestion());
-		
+		Souris gestionSouris = new Souris(this,nxt);
 
-		JLabel[] affichageQuestion = new JLabel[10];
-		
-
-		for (int i = 0;i < 10;i++ ) {
-			
-		a = qsnt.generationDeQuestion();
-		b = qsnt.generationDeQuestion();
-		rep = a*b;	
-		question[i] = String.valueOf(a)+ "x" +String.valueOf(b);
-		reponse[i] = String.valueOf(rep);
-		affichageQuestion[i] = new JLabel(String.valueOf(a)+ "x" +String.valueOf(b)+ "="+reponse[i]);
-		
-		panQuestion.add(affichageQuestion[i]);
-
-			
-
-		}
-
+		this.addMouseListener(gestionSouris);
 		this.add(panQuestion);
+				
+
+			
+
+
+
+
 
 		this.setVisible(true);
 

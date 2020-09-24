@@ -1,10 +1,9 @@
 package fr.iutfbleau.projet;
 
-import java.*;
 import java.util.*;
 
 
-public class createQuestion
+public class CreateQuestion
 {
 
 
