@@ -19,11 +19,18 @@ public class Screen extends JFrame
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JPanel panQuestion = new JPanel();
+		JPanel panReponse = new JPanel();
 
-		CreateQuestion gen = new CreateQuestion();
+		CreateQuestion gen = new CreateQuestion(this);
 		JLabel affichageQuestion = new JLabel("OK");
 		affichageQuestion.setFont(new Font("Serif", Font.BOLD, 48));
 		
+
+		JLabel affichageRep = new JLabel(gen.generationReponse());
+
+		panReponse.add(affichageRep);
+		this.add(panReponse);
+
 		panQuestion.add(affichageQuestion,BorderLayout.CENTER);
 
 		QuestionSuivante nxt = new QuestionSuivante(this,affichageQuestion,panQuestion,gen);
