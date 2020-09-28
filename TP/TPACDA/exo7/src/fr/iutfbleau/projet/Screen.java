@@ -20,7 +20,7 @@ public class Screen extends JFrame
 
   
   		 
-
+		ClassLoader loader = Thread.currentThread().getContextClassLoader();
 
 		JLabel image = new JLabel(new ImageIcon("res/img/3.jpg"));
 		image.setOpaque(true);

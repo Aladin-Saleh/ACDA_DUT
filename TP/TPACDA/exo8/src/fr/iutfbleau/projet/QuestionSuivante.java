@@ -2,7 +2,9 @@ package fr.iutfbleau.projet;
 
 import java.awt.*;
 import java.awt.event.*;
-import javax.swing.JLabel; 
+import javax.swing.JLabel;
+
+
 import javax.swing.ImageIcon; 
 import javax.swing.*;
 
@@ -13,10 +15,9 @@ private Screen fen;
 private JPanel panQ;
 private int a,b,rep;
 private String[] question = new String[10];
-private String[] reponse = new String[10];
 private int indice = 0;
 private CreateQuestion generator;
-
+private int[] reponse = new int[50];
 
 	public QuestionSuivante(Screen fen,JLabel qstn,JPanel panQ,CreateQuestion generator)
 	{
@@ -29,7 +30,8 @@ private CreateQuestion generator;
         b = generator.generationDeQuestion();
         rep = a*b;
         question[i] = String.valueOf(a)+ "x" +String.valueOf(b);
-        reponse[i] = String.valueOf(rep);
+       
+
     }
 
 	}
@@ -46,7 +48,7 @@ private CreateQuestion generator;
                  qstn.setOpaque(true);
                  //panQ.setOpaque(true);
                  
-                 panQ.add(qstn,BorderLayout.CENTER);
+                 panQ.add(qstn,BorderLayout.WEST);
                  
                  fen.add(panQ);
                  panQ.revalidate();

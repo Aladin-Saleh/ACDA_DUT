@@ -20,16 +20,16 @@ public class Screen extends JFrame
 		
 		JPanel panQuestion = new JPanel();
 		JPanel panReponse = new JPanel();
+		panReponse.setBackground(Color.DARK_GRAY);
 
 		CreateQuestion gen = new CreateQuestion(this);
 		JLabel affichageQuestion = new JLabel("OK");
 		affichageQuestion.setFont(new Font("Serif", Font.BOLD, 48));
 		
+		gen.nombreDeReponse();
+		JLabel affichageRep = new JLabel("OK");
 
-		JLabel affichageRep = new JLabel(gen.generationReponse());
-
-		panReponse.add(affichageRep);
-		this.add(panReponse);
+	
 
 		panQuestion.add(affichageQuestion,BorderLayout.CENTER);
 
@@ -38,10 +38,11 @@ public class Screen extends JFrame
 		Souris gestionSouris = new Souris(this,nxt);
 
 		this.addMouseListener(gestionSouris);
-		this.add(panQuestion);
+		this.add(panQuestion,BorderLayout.WEST);
 				
 
-			
+		panReponse.add(affichageRep);
+		this.add(panReponse,BorderLayout.EAST);
 
 
 

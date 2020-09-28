@@ -34,25 +34,12 @@ public CreateQuestion(Screen fen)
 
 
 
-	public void generationReponse()
+
+	public void generationReponse(int[] rep,int bnRep,int nbrReponse)
 	{
 
-	ButtonGroup choix = new ButtonGroup();
-    JRadioButton[] rep = new JRadioButton[3];
-    
 
-
-   	for (int i = 0;i < 3 ;i++ ) {
-   		
-   		rep[i] = JRadioButton("test");
-   		choix.add(rep[i]);
-   		fen.add(rep[i],BorderLayout.CENTER);
-
-   	}
-
-
-    
-
+	
 
 
 
