@@ -6,7 +6,6 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon; 
 
 
-
 public class Souris implements MouseListener
 {
 
@@ -25,11 +24,12 @@ public Souris(Screen fen,JLabel img)
 
 for (i = 0; i < photo.length;i++ ) {
     
-    photo[i] = "res/img/"+i+".jpg";
 
+    photo[i] = "res/img/"+i+".jpg";
 
 }
 
+ 
 	
 
 }
