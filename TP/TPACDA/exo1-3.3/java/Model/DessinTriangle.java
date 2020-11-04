@@ -12,15 +12,5 @@ public class DessinTriangle extends JComponent {
     public DessinTriangle() {
     }
 
-    /**
-     * 
-     */
-    private int posX;
-
-    /**
-     * 
-     */
-    private int posY[];
-
 
 }

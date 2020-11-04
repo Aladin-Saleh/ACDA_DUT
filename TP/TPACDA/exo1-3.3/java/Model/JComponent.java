@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * 
  */
-public class JComponent extends DessinTriangle implements MouseListener {
+public class JComponent {
 
     /**
      * Default constructor

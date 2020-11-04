@@ -1,0 +1,4 @@
+ Papé14 a tout d'abord recuperer le split(séparation) de la parcelle p0 qui lui retourne V,ensuite celui-ci vas recuperer la parcelle gauche (utilisé la méthode getFirst() qui retourne la parcelle gauche) etant donné que la parcelle a retourner V(Vertical, il retourne ici donc la parcelle p1.
+ Ensuite,  Papé14 utilise la methode setParcelleVisible(p1), en faisant cela il met à jour la parcelle.
+ Apres cela, il récupere le split de p1, qui lui retourne H (horizontal), il va ensuite détruire les sous parcelle de p1 qui aura donc pour resultat la destruction de p2 et p3.
+rls
