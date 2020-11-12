@@ -1,0 +1,6 @@
+1-Si on souhaite revenir au début, on peut :
+	-faire une chaine doublement chaîné
+	-"sauvegarder" le premier iterator
+
+
+2-On pourrait crée un nouvelle iterator
