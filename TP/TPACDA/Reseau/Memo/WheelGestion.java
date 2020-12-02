@@ -11,41 +11,48 @@ public class WheelGestion implements MouseWheelListener
 
 
 private JTextArea zone;
-private ArrayList<Color> importance = new ArrayList<Color>();
 private int i = 1;
-private boolean estImportant = false;
+private String zoneBackgroundColor="WHITE";
+private String iptc;
 
-public WheelGestion(JTextArea z)
+public WheelGestion(JTextArea z,String importance)
 {
-	importance.add(0,Color.WHITE);
-	importance.add(1,Color.RED);
-	importance.add(2,Color.WHITE);
-
-	
 	this.zone = z;
-}
+	if(importance.equals("RED"))
+	{
+		zoneBackgroundColor ="RED";
+		zone.setBackground(Color.RED);
+	}
 
+}
 
 @Override
 public void mouseWheelMoved(MouseWheelEvent e)
 {
+	i = e.getWheelRotation();
+	if(i < 0 )
+	{	
+		//HAUT
+		System.out.println("haut");
+		zone.setBackground(Color.red);
+		zone.repaint();
+		zoneBackgroundColor = "RED";
+	}
+	else
+	{
+		//BAS
+		System.out.println("bas");
+		zone.setBackground(Color.WHITE);
+		zone.repaint();
+		zoneBackgroundColor = "WHITE";
 
-	System.out.println(estImportant);
-
-	zone.setBackground(importance.get(++i%importance.size()));
-	zone.repaint();
-	estImportant = !estImportant;
-
-	
+	}
+	//System.out.println(zone.getBackground());
 }
 
-
-
-
-
-
-
-
-
+public String getColorZone()
+{
+	return zoneBackgroundColor;
+}
 
 }

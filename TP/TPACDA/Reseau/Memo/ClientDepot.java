@@ -17,9 +17,11 @@ public class ClientDepot {
   private Socket skt;
   private BufferedReader reception;
   private BufferedWriter envoi;
+  private String color ="";
 
   public String extraire() {
     String res = "";
+
     try {
       connecter();
       try {
@@ -27,6 +29,7 @@ public class ClientDepot {
         envoi.newLine();
         envoi.flush();
         res = reception.readLine();
+        color = reception.readLine();
       } catch(IOException e) {
         System.err.println("Entreposage impossible");
       }
@@ -37,7 +40,7 @@ public class ClientDepot {
     return res;
   }
 
-  public void entreposer(String s) {
+  public void entreposer(String s,String c) {
     try {
       connecter();
       try {
@@ -45,6 +48,9 @@ public class ClientDepot {
         envoi.newLine();
         envoi.flush();
         envoi.write(s);
+        envoi.newLine();
+        envoi.flush();
+        envoi.write(c);
         envoi.newLine();
         envoi.flush();
       } catch(IOException e) {
@@ -76,6 +82,12 @@ public class ClientDepot {
     } catch (IOException e) {
       System.err.println("Cloture de connexion impossible");
     }
+  }
+
+
+  public String getLastColor()
+  {
+    return color;
   }
 
 }
