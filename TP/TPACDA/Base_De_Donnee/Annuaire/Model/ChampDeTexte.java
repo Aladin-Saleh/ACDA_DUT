@@ -1,5 +1,6 @@
-
+import javax.swing.*;
 import java.util.*;
+import java.awt.*;
 
 /**
  * 
@@ -10,7 +11,7 @@ public class ChampDeTexte extends JPanel {
     /**
      * 
      */
-    private GridLayout gridL;
+    private GridLayout gridL = new GridLayout(2,1);
 
     /**
      * 
@@ -38,6 +39,11 @@ public class ChampDeTexte extends JPanel {
      */
     public ChampDeTexte(ButtonListener btnL) {
         // TODO implement here
+        this.setLayout(gridL);
+        userNameEntry = new JTextField(); 
+        userNumEntry = new JTextField(); 
+        this.add(userNameEntry);
+        this.add(userNumEntry);
     }
 
     /**

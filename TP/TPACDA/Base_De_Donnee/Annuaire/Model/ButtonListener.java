@@ -1,10 +1,14 @@
-
+import javax.swing.*;
 import java.util.*;
+import java.awt.*;
+import java.awt.event.*;
+
 
 /**
  * 
  */
-public class ButtonListener extends ActionListener {
+public class ButtonListener implements ActionListener
+{
 
  
 
@@ -16,7 +20,6 @@ public class ButtonListener extends ActionListener {
     /**
      * @param e
      */
-    @Override
     public void actionPerformed(ActionEvent e) {
         // TODO implement here
     }
