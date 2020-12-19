@@ -13,18 +13,17 @@ public class TournerTriangle {
     }
 
 
+
     /**
-     * @param int x1 
-     * @param int x2 
-     * @param int x3 
-     * @param int y1 
-     * @param int y2 
-     * @param int y3 
-     * @return
+     * @param x1 
+     * @param x2 
+     * @param x3 
+     * @param y1 
+     * @param y2 
+     * @param y3
      */
-    public void tourner(void int x1, void int x2, void int x3, void int y1, void int y2, void int y3) {
+    public void tourner(int x1, int x2, int x3, int y1, int y2, int y3) {
         // TODO implement here
-        return null;
     }
 
 }

@@ -11,38 +11,31 @@ public class ChampDeTexte extends JPanel {
     /**
      * 
      */
-    private GridLayout gridL = new GridLayout(2,1);
+    private GridLayout gridL = new GridLayout(4,1);
 
     /**
      * 
      */
-    private JTextField userNameEntry;
+    public JTextField userNameEntry;
 
     /**
      * 
      */
-    private JTextField userNumEntry;
+    public JTextField userNumEntry;
 
     /**
      * 
      */
-    private ButtonListener btnLstnr;
-
-
-    /**
-     * 
-     */
-    private ButtonListener btnListener;
-
-    /**
-     * @param btnL
-     */
-    public ChampDeTexte(ButtonListener btnL) {
+    public ChampDeTexte() {
         // TODO implement here
         this.setLayout(gridL);
-        userNameEntry = new JTextField(); 
-        userNumEntry = new JTextField(); 
+        this.add(new JLabel("Nom"));
+        userNameEntry = new JTextField();
+        
+        userNumEntry = new JTextField();
+        
         this.add(userNameEntry);
+        this.add(new JLabel("Numero"));
         this.add(userNumEntry);
     }
 
@@ -50,16 +43,14 @@ public class ChampDeTexte extends JPanel {
      * @return
      */
     public String getName() {
-        // TODO implement here
-        return "";
+        return userNameEntry.getText();
     }
 
     /**
      * @return
      */
     public String getNum() {
-        // TODO implement here
-        return "";
+        return userNumEntry.getText();
     }
 
 }

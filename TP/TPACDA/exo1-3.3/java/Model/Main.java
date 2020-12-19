@@ -12,16 +12,14 @@ public class Main {
     public Main() {
     }
 
-    /**
-     * 
-     */
-    Fenetre fen = new Fenetre();
 
     /**
      * 
      */
-    public void main() {
+   public static void main(String[] args) {
         // TODO implement here
+
+        Fenetre fen = new Fenetre();
     }
 
 }

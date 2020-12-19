@@ -82,26 +82,7 @@ public class ServeurDepot {
   }
 
 
-  public void envoyerCouleur() {
-    try {
-      
-      envoi.write(importance);
-      envoi.newLine();
-      envoi.flush();
-      System.out.println("Importance transmis : " + importance);
-    } catch(IOException e) {
-      System.err.println("Transmission du texte impossible");
-    }
-  }
-
-  public void recevoirCouleur() {
-    try {
-      texte = reception.readLine();
-      System.out.println("Importance recu : " + importance);
-    } catch (IOException e) {
-      System.err.println("Lecture de la mise a jour impossible");
-    }
-  }
+  
 
 
 
