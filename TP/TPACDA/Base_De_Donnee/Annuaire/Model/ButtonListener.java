@@ -42,14 +42,14 @@ public class ButtonListener extends JPanel implements ActionListener
             //Si tout les champs de texte sont vides
             returnString = "Entrer un numéro ou un nom pour que l'annuaire fasse son travail ! ";
         }
-        else if(monChmpTexte.getName().equals("") && !monChmpTexte.getNum().equals(""))
+        else if(monChmpTexte.getName().equals("") && monChmpTexte.getNum() != null)
         {
             //Si il n'y a que le champs de nom qui est null/vide et que le champ de numero ne l'est pas
             System.out.println("Valid" + monChmpTexte.getNum());
-            if(interactBD.isNumExist(monChmpTexte.getName()))
+            if(interactBD.isNumExist(monChmpTexte.getNum()))
             {
                 //Si le numero existe alors on donne le nom qui lui est associé 
-                returnString = interactBD.getNameUser(monChmpTexte.getName());
+                returnString = interactBD.getNameUser(monChmpTexte.getNum());
             }
             else
             {
@@ -58,13 +58,13 @@ public class ButtonListener extends JPanel implements ActionListener
             }
 
         }
-        else if(monChmpTexte.getName().equals("") && !monChmpTexte.getNum().equals(""))
+        else if(monChmpTexte.getName() != null && monChmpTexte.getNum().equals(""))
         {
             //Si le champ de nom n'est pas vide et que le champ numero l'est 
-            if (interactBD.isNameExist(monChmpTexte.getNum())) 
+            if (interactBD.isNameExist(monChmpTexte.getName())) 
             {
              //Si le nom existe alors on donne le numero qui lui est associé   
-            returnString = interactBD.getNumUser(monChmpTexte.getNum());
+            returnString = interactBD.getNumUser(monChmpTexte.getName());
             }
             else
             {
@@ -73,7 +73,7 @@ public class ButtonListener extends JPanel implements ActionListener
             }
 
         }
-        else if(!monChmpTexte.getName().equals("") && !monChmpTexte.getNum().equals("") )
+        else if(monChmpTexte.getName() != null && monChmpTexte.getNum() != null)
         {
             //Si le nom et le numero n'est pas vide 
             if (interactBD.isNameExist(monChmpTexte.getName()) && !interactBD.isNumExist(monChmpTexte.getNum())) {

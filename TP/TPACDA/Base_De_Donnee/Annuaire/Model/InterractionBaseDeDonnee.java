@@ -7,12 +7,33 @@ import java.util.*;
  */
 public class InterractionBaseDeDonnee {
 
-   
 
+
+
+   private PreparedStatement pst;
     /**
      * 
      */
     private Connection conectBD;
+
+
+    public InterractionBaseDeDonnee()
+    {
+        try{
+            Class.forName("org.mariadb.jdbc.Driver");
+        }catch(Exception ex){
+                System.out.println("Dommage : "+ex);
+        }
+ 
+        try{
+            
+            conectBD = DriverManager.getConnection("jdbc:mariadb://dwarves.iut-fbleau.fr/saleh","saleh", "aladin.saleh");
+            }
+            catch(SQLException ex){
+
+                System.out.println("SQLException: "+ex.getMessage());
+            }
+    }
 
     /**
      * @param nom
@@ -46,7 +67,7 @@ public class InterractionBaseDeDonnee {
             PreparedStatement pst = conectBD.prepareStatement("UPDATE ACDA33 SET NameUser = ? WHERE NumUser = ?");
             pst.setString(1, nName);
             pst.setString(2, num);
-            ResultSet rs = pst.executeQuery();
+            pst.executeUpdate();
         }catch(SQLException es){
             es.printStackTrace();
         }
@@ -60,10 +81,11 @@ public class InterractionBaseDeDonnee {
         System.out.println("updateUNum");
         // TODO implement here
         try{
-            PreparedStatement pst = conectBD.prepareStatement("UPDATE ACDA33 SET NumUser = ? WHERE NameUser = ?");
+            //PreparedStatement pst = conectBD.prepareStatement("UPDATE ACDA33 SET NumUser ="+nNum+" WHERE NameUser ="+username);
+            PreparedStatement pst = conectBD.prepareStatement("UPDATE ACDA33 SET NumUser =? WHERE NameUser =?");
             pst.setString(1, nNum);
             pst.setString(2, username);
-            ResultSet rs = pst.executeQuery();
+            pst.executeUpdate();
         }catch(SQLException es){
             es.printStackTrace();
         }
@@ -73,7 +95,7 @@ public class InterractionBaseDeDonnee {
     {
         int count = 0;
         try{
-            PreparedStatement pst = conectBD.prepareStatement("SELECT COUNT(NameUser) FROM ACDA33 WHERE NumUser = ?");
+            PreparedStatement pst = conectBD.prepareStatement("SELECT COUNT(NameUser) FROM ACDA33 WHERE NameUser = ?");
             pst.setString(1, usernum);
             ResultSet rs = pst.executeQuery();
             while(rs.next())
@@ -94,12 +116,12 @@ public class InterractionBaseDeDonnee {
         }
     }
 
-    public boolean isNumExist(String username)
+    public boolean isNumExist(String usernume)
     {
         int count = 0;
         try{
-            PreparedStatement pst = conectBD.prepareStatement("SELECT COUNT(NumUser) FROM ACDA33 WHERE NameUser = ?");
-            pst.setString(1, username);
+            PreparedStatement pst = conectBD.prepareStatement("SELECT COUNT(NumUser) FROM ACDA33 WHERE NumUser = ?");
+            pst.setString(1, usernume);
             ResultSet rs = pst.executeQuery();
             while(rs.next())
             {
@@ -156,21 +178,5 @@ public class InterractionBaseDeDonnee {
     }
 
 
-    public InterractionBaseDeDonnee()
-    {
-        try{
-            Class.forName("org.mariadb.jdbc.Driver");
-        }catch(Exception ex){
-                System.out.println("Dommage : "+ex);
-        }
- 
-        try{
-            
-            conectBD = DriverManager.getConnection("jdbc:mariadb://dwarves.iut-fbleau.fr/saleh","saleh", "aladin.saleh");
-            }
-            catch(SQLException ex){
-
-                System.out.println("SQLException: "+ex.getMessage());
-            }
-    }
+    
 }
